@@ -8,6 +8,13 @@
 \usepackage{array}
 \usepackage{url}
 \usepackage{hyperref}
+\makeatletter
+\pdfstringdefDisableCommands{%
+  \def\corref#1{}%
+  \def\cnotenum#1{}%
+  \def\@corref#1{}%
+}
+\makeatother
 \usepackage{lineno}
 \usepackage{microtype}
 \emergencystretch=2em
@@ -20,9 +27,19 @@
 
 \title{Distribution-shift-aware safe offline reinforcement learning for physics-constrained scheduling of regional integrated electricity--heat systems}
 
-\author[aff1]{Author One}
-\author[aff1]{Author Two}
-\address[aff1]{Department, University or Institute, City, Country}
+\author[a]{Pei He}
+\ead{hepei002@mail.nwpu.edu.cn}
+
+\author[b]{Haoyue Xue}
+\ead{hxue8@illinois.edu}
+
+\author[c]{Yangming Guo\corref{cor1}}
+\ead{yangming\_g@nwpu.edu.cn}
+\cortext[cor1]{Corresponding author}
+
+\address[a]{School of Computer Science and Engineering, Northwestern Polytechnical University, Xi'an, Shaanxi 710072, China}
+\address[b]{College of Agricultural, Consumer and Environmental Sciences, University of Illinois Urbana-Champaign, Urbana, IL 61801, USA}
+\address[c]{School of Cybersecurity, Northwestern Polytechnical University, Xi'an 710072, China}
 
 \begin{abstract}
 Offline reinforcement learning (offline RL) can train fast dispatch policies without unsafe online exploration, but policies trained from fixed datasets may fail when regional integrated energy systems experience distribution shifts in load, weather, renewable availability or equipment parameters. This paper develops a distribution-shift-aware safe offline RL framework for physics-constrained electricity--heat scheduling. The framework combines CQL or IQL policies with a dynamics-ensemble out-of-distribution (OOD) risk estimator and an adaptive safety layer that passes, partially corrects or fully projects policy actions toward the physical feasible set. A reproducible case study is built from public German electricity, heat and weather time series for 2017--2019 and scaled to a medium-sized industrial park with 10 MW electric peak load and 18 MWth heat peak load. The experiments compare perfect-information optimization, rolling MPC, rule-based dispatch, behavior cloning, TD3+BC, raw CQL/IQL, fixed safety projection and adaptive safety under in-distribution, load-increase, cold-wave, equipment-fault and compound-stress scenarios. Raw CQL and IQL are fast but unsafe under severe shifts: in the cold-wave extreme scenario, their mean hard safety costs reach 49.93 and 58.21, respectively. Coupling them with the adaptive safety layer reduces the corresponding mean hard safety cost below numerical tolerance across the five-seed main experiments, with significant paired reductions in cold-wave, compound and load-up scenarios. The results show that OOD-aware physical correction can make offline RL dispatch more reliable under predefined shifts, while exposing the computation and intervention costs required for this reliability.
