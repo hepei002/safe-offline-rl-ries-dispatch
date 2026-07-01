@@ -2,6 +2,8 @@
 
 This guide records the intended public-repository workflow for reproducing the simulation benchmark, experiments and manuscript figures.
 
+Public repository: <https://github.com/hepei002/safe-offline-rl-ries-dispatch>
+
 ## 1. Environment
 
 Recommended baseline:
@@ -94,4 +96,3 @@ The final public release should include the LaTeX source, BibTeX file, editable 
 - Confirm third-party data attribution and licence wording.
 - Tag the GitHub release with a stable version, for example `v1.0.0-submission`.
 - Attach a compiled PDF only to the release page if desired; do not track build products in the main branch.
-

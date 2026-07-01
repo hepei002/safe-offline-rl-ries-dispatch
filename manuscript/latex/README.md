@@ -2,6 +2,8 @@
 
 This folder contains the LaTeX manuscript source for the safe offline RL study.
 
+Public code/data repository: <https://github.com/hepei002/safe-offline-rl-ries-dispatch>
+
 ## Files
 
 - `main.tex` — Elsevier `elsarticle` manuscript source for Applied Energy.
