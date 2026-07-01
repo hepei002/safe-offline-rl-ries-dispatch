@@ -1,0 +1,38 @@
+schema_version: 1.0
+evaluation:
+  start_utc: "2018-03-15T00:00:00Z"
+  hours: 72
+  lookahead_hours: 24
+  note: >
+    Week-5 benchmark uses a compact 72-hour shoulder-season window for fast iteration.
+    Later offline dataset generation can reuse the same policies over longer
+    yearly windows.
+costs:
+  natural_gas_eur_per_mwh_lhv: 55.0
+  electricity_import_eur_per_mwh:
+    base: 95.0
+    daytime_adder: 20.0
+    evening_peak_adder: 45.0
+    night_discount: -15.0
+  electricity_export_eur_per_mwh: 40.0
+  renewable_curtailment_penalty_eur_per_mwh: 1.0
+forecast_error:
+  electric_load_relative_std: 0.06
+  heat_load_relative_std: 0.08
+  renewable_relative_std: 0.15
+  cop_relative_std: 0.04
+  price_relative_std: 0.08
+rule_based:
+  low_price_eur_per_mwh: 90.0
+  high_price_eur_per_mwh: 130.0
+  battery_low_soc_fraction: 0.25
+  battery_high_soc_fraction: 0.75
+  chp_heat_priority_fraction: 0.7
+safe_random:
+  seed: 2026
+  chp_min_fraction: 0.0
+  chp_max_fraction: 1.0
+  heat_pump_min_fraction: 0.0
+  heat_pump_max_fraction: 1.0
+noisy_mpc:
+  seed: 42

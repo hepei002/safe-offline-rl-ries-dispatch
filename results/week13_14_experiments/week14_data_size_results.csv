@@ -1,0 +1,4 @@
+fraction,algorithm,episodes,raw_mean_episode_hard_safety_cost,mean_episode_cost_eur,cvar90_episode_cost_eur,mean_episode_safety_cost,mean_episode_hard_safety_cost,unsafe_episode_rate,mean_projection_distance_l2,mean_weighted_projection_distance,mean_decision_time_ms,intervention_rate,pass_through_rate,partial_projection_rate,full_projection_rate
+0.25,bc,1,2.1077510004200786,31322.68120176336,31322.68120176336,59.54191986296526,2.1077510004200786,1.0,0.0,0.0,0.22724166666421297,0.0,1.0,0.0,0.0
+0.5,bc,1,2.5926727810677876,34940.460075410316,34940.460075410316,56.37670960277634,2.5926727810677876,1.0,0.0,0.0,0.27039999999090014,0.0,1.0,0.0,0.0
+1.0,bc,1,2.763480702380547,36432.467435517094,36432.467435517094,55.922509917747384,2.763480702380547,1.0,0.0,0.0,0.26240833333919983,0.0,1.0,0.0,0.0

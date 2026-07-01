@@ -1,0 +1,25 @@
+schema_version: 1.0
+name: fixed_physical_safety_projection_v1
+solver:
+  backend: scipy_slsqp
+  max_iterations: 60
+  prefer_fast_fallback: true
+  hard_safety_tolerance: 1.0e-6
+  hard_safety_penalty: 1000000.0
+  soft_operation_weight: 0.001
+  distance_weights:
+    chp_electric_fraction: 1.0
+    heat_pump_heat_fraction: 1.0
+    battery_power_fraction: 0.5
+    thermal_power_fraction: 0.5
+fallback:
+  enabled: true
+  method: deterministic_candidate_search
+evaluation:
+  unsafe_action:
+    chp_electric_fraction: -1.0
+    heat_pump_heat_fraction: -1.0
+    battery_power_fraction: 1.0
+    thermal_power_fraction: 1.0
+  episode_hours: 24
+  episodes: 12

@@ -1,0 +1,29 @@
+schema_version: 1.0
+model:
+  id: deterministic_day_ahead_lp
+  name: Deterministic 24-hour linear dispatch baseline
+  timestep_hours: 1
+  horizon_hours: 24
+  perfect_foresight: true
+  cyclic_storage_terminal_soc: true
+costs:
+  natural_gas_eur_per_mwh_lhv: 55.0
+  electricity_import_eur_per_mwh:
+    base: 95.0
+    daytime_adder: 20.0
+    evening_peak_adder: 45.0
+    night_discount: -15.0
+  electricity_export_eur_per_mwh: 40.0
+  renewable_curtailment_penalty_eur_per_mwh: 1.0
+  note: >
+    Cost coefficients are deterministic baseline assumptions used to generate
+    an interpretable expert dispatch. They are not market-price claims.
+typical_days:
+  winter_months: [12, 1, 2]
+  summer_months: [6, 7, 8]
+  shoulder_months: [3, 4, 5, 9, 10, 11]
+  selection_method: daily-feature vector nearest to seasonal median
+  selection_features:
+    - electric_load_mw
+    - heat_load_mw_th
+    - temperature_c

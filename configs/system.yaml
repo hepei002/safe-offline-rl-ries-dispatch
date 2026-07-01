@@ -1,0 +1,140 @@
+schema_version: 1.0
+system:
+  id: medium_industrial_park_de
+  name: Germany-calibrated medium industrial park
+  description: >
+    Aggregated electricity-heat industrial park calibrated with German
+    2017-2019 public time series. This is a synthetic test system, not a
+    measured real-world park.
+  country: DE
+  timezone: UTC
+  timestep_hours: 1
+  scheduling_horizon_hours: 24
+
+data_scaling:
+  source_file: data/processed/exogenous/germany_joint_hourly_2017_2019.csv
+  period:
+    start_utc: "2017-01-01T00:00:00Z"
+    end_utc: "2019-12-31T23:00:00Z"
+  electricity:
+    source_column: electric_load_actual_mw
+    source_peak_mw: 77549.0
+    target_peak_mw: 10.0
+    scale_factor: 0.00012895072792685913
+  heat:
+    source_column: heat_demand_reference_2015_mw
+    source_peak_mw_th: 271007.605591
+    target_peak_mw_th: 18.0
+    scale_factor: 0.00006641880016889744
+  renewable_profiles:
+    method: actual_generation_divided_by_installed_capacity
+    source_file: data/raw/opsd/time_series_60min_singleindex.csv
+    clip_capacity_factor: [0.0, 1.0]
+
+grid:
+  import_capacity_mw: 12.0
+  export_capacity_mw: 6.0
+  import_efficiency: 1.0
+  export_efficiency: 1.0
+  outage_fallback: load_shedding_with_penalty
+
+renewables:
+  photovoltaic:
+    capacity_mw: 6.0
+    availability_source: DE_solar_generation_actual / DE_solar_capacity
+    curtailment_allowed: true
+  wind:
+    capacity_mw: 4.0
+    availability_source: DE_wind_generation_actual / DE_wind_capacity
+    curtailment_allowed: true
+
+chp:
+  technology: natural_gas_reciprocating_engine
+  electric_capacity_mw: 6.0
+  heat_capacity_mw_th: 7.2
+  electric_efficiency_lhv: 0.40
+  thermal_efficiency_lhv: 0.48
+  total_efficiency_lhv: 0.88
+  heat_to_power_ratio: 1.20
+  minimum_electric_output_mw: 0.0
+  ramp_up_mw_per_hour: 3.0
+  ramp_down_mw_per_hour: 3.0
+  commitment_model: continuous_dispatch
+  relation: heat_output_mw_th = 1.2 * electric_output_mw
+
+heat_pump:
+  technology: air_source_heat_pump
+  heat_capacity_mw_th: 10.0
+  minimum_heat_output_mw_th: 0.0
+  cop_source_column: cop_ashp_radiator
+  observed_cop_range: [1.65, 4.06]
+  ramp_up_mw_th_per_hour: 10.0
+  ramp_down_mw_th_per_hour: 10.0
+  relation: electric_input_mw = heat_output_mw_th / cop
+
+battery:
+  technology: lithium_ion
+  energy_capacity_mwh: 8.0
+  charge_power_mw: 4.0
+  discharge_power_mw: 4.0
+  charge_efficiency: 0.95
+  discharge_efficiency: 0.95
+  round_trip_efficiency: 0.9025
+  hourly_self_discharge: 0.0005
+  soc_min: 0.10
+  soc_max: 0.90
+  soc_initial: 0.50
+  soc_terminal: 0.50
+
+thermal_storage:
+  technology: hot_water_tank_equivalent
+  energy_capacity_mwh_th: 20.0
+  charge_power_mw_th: 5.0
+  discharge_power_mw_th: 5.0
+  charge_efficiency: 0.95
+  discharge_efficiency: 0.95
+  hourly_heat_loss: 0.002
+  soc_min: 0.10
+  soc_max: 0.90
+  soc_initial: 0.50
+  soc_terminal: 0.50
+
+reliability:
+  electricity_balance_tolerance_mw: 0.000001
+  heat_balance_tolerance_mw_th: 0.000001
+  electricity_shedding_allowed: true
+  heat_shedding_allowed: true
+  shedding_use: emergency_only
+  electricity_shedding_penalty_eur_per_mwh: 10000.0
+  heat_shedding_penalty_eur_per_mwh_th: 8000.0
+
+distribution_shift_levels:
+  light:
+    electric_load_multiplier: 1.05
+    heat_load_multiplier: 1.10
+    chp_efficiency_multiplier: 0.95
+    battery_capacity_multiplier: 0.95
+    heat_pump_cop_multiplier: 0.95
+    grid_import_capacity_mw: 10.8
+  moderate:
+    electric_load_multiplier: 1.10
+    heat_load_multiplier: 1.20
+    chp_efficiency_multiplier: 0.90
+    battery_capacity_multiplier: 0.85
+    heat_pump_cop_multiplier: 0.90
+    grid_import_capacity_mw: 9.6
+  severe:
+    electric_load_multiplier: 1.20
+    heat_load_multiplier: 1.35
+    chp_efficiency_multiplier: 0.80
+    battery_capacity_multiplier: 0.70
+    heat_pump_cop_multiplier: 0.80
+    grid_import_capacity_mw: 7.2
+
+references:
+  chp: https://www.epa.gov/sites/default/files/2015-07/documents/catalog_of_chp_technologies.pdf
+  battery: https://atb.nrel.gov/electricity/2024/utility-scale_battery_storage
+  heat_profiles_and_cop: https://doi.org/10.1038/s41597-019-0199-y
+  electricity_profiles: https://doi.org/10.25832/time_series/2020-10-06
+  weather_profiles: https://doi.org/10.25832/weather_data/2020-09-16
+

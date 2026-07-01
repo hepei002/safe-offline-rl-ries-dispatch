@@ -1,0 +1,36 @@
+schema_version: 1.0
+dataset:
+  name: ries_offline_dispatch_prototype
+  format: custom_parquet
+  source_period:
+    start_utc: "2018-01-01T00:00:00Z"
+    episodes: 180
+    episode_hours: 24
+    lookahead_hours: 47
+  output_dir: data/processed/offline
+  qualities:
+    expert:
+      episodes: 180
+      start_offset_hours: 0
+      stride_hours: 24
+      seed: 1000
+      policy_mix:
+        perfect_information_lp: 1.0
+    mixed:
+      episodes: 60
+      start_offset_hours: 0
+      stride_hours: 24
+      seed: 2000
+      policy_mix:
+        rolling_mpc: 0.25
+        noisy_rolling_mpc: 0.25
+        rule_based: 0.25
+        safe_random: 0.25
+    poor:
+      episodes: 180
+      start_offset_hours: 0
+      stride_hours: 24
+      seed: 3000
+      policy_mix:
+        rule_based: 0.40
+        safe_random: 0.60

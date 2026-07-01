@@ -1,0 +1,59 @@
+schema_version: 1.0
+experiment:
+  id: week13_14_main_ablation_sensitivity
+  seeds: [0, 1, 2, 3, 4]
+  algorithms: [bc, td3_bc, cql, iql]
+  safety_algorithms: [cql, iql]
+  dataset_paths:
+    all:
+      - data/processed/offline/expert.parquet
+      - data/processed/offline/mixed.parquet
+      - data/processed/offline/poor.parquet
+    expert:
+      - data/processed/offline/expert.parquet
+    mixed:
+      - data/processed/offline/mixed.parquet
+    poor:
+      - data/processed/offline/poor.parquet
+training:
+  steps: 80
+  batch_size: 256
+  hidden_dim: 64
+  learning_rate: 0.0005
+  gamma: 0.99
+  reward_scale: 0.001
+  bc_weight: 2.5
+  cql_alpha: 0.5
+  expectile: 0.7
+  advantage_temperature: 3.0
+  max_advantage_weight: 20.0
+evaluation:
+  start_utc: "2019-01-01 00:00:00+00:00"
+  episode_hours: 24
+  episodes: 1
+  stride_hours: 168
+  scenarios:
+    - in_distribution
+    - load_up_20
+    - cold_wave_extreme
+    - compound_extreme
+adaptive_safety:
+  low_risk_threshold: 3.0
+  high_risk_threshold: 4.0
+  blend_grid_size: 5
+  hard_safety_tolerance: 1.0e-6
+  force_project_if_hard_violation: false
+sensitivity:
+  seeds: [0]
+  data_quality_algorithm: iql
+  data_size_algorithm: bc
+  data_size_fractions: [0.25, 0.5, 1.0]
+  ood_thresholds:
+    - {low: 2.5, high: 3.5}
+    - {low: 3.0, high: 4.0}
+    - {low: 3.5, high: 4.5}
+  distance_weight_scales: [0.5, 1.0, 2.0]
+  stress_load_multipliers: [1.0, 1.2, 1.5]
+outputs:
+  result_dir: results/week13_14_experiments
+  figure_dir: results/figures/week13_14

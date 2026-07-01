@@ -1,0 +1,23 @@
+schema_version: 1.0
+name: adaptive_ood_aware_safety_layer_v1
+risk_mapping:
+  low_risk_threshold: 3.0
+  high_risk_threshold: 4.0
+  blend_grid_size: 11
+  hard_safety_tolerance: 1.0e-6
+  force_project_if_hard_violation: false
+evaluation:
+  safe_action:
+    chp_electric_fraction: 1.0
+    heat_pump_heat_fraction: 1.0
+    battery_power_fraction: -1.0
+    thermal_power_fraction: -1.0
+  unsafe_action:
+    chp_electric_fraction: -1.0
+    heat_pump_heat_fraction: -1.0
+    battery_power_fraction: 1.0
+    thermal_power_fraction: 1.0
+  mixed_policy:
+    low_risk_score: 0.4
+    medium_risk_score: 2.0
+    high_risk_score: 4.0

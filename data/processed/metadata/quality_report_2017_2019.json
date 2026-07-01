@@ -1,0 +1,84 @@
+{
+  "period": {
+    "start_utc": "2017-01-01T00:00:00Z",
+    "end_utc": "2019-12-31T23:00:00Z",
+    "rows": 26280
+  },
+  "opsd": {
+    "duplicate_rows": 0,
+    "imputed_cells": 0,
+    "imputed_rows": 0
+  },
+  "weather": {
+    "duplicate_rows": 0,
+    "imputed_cells": 0,
+    "imputed_rows": 0
+  },
+  "when2heat": {
+    "duplicate_rows": 0,
+    "imputed_cells": 27,
+    "imputed_rows": 3
+  },
+  "heat_reference_year": 2015,
+  "heat_reference_annual_twh": {
+    "heat_profile_space_com_mw_per_twh": 168.910477,
+    "heat_profile_space_mfh_mw_per_twh": 94.199318,
+    "heat_profile_space_sfh_mw_per_twh": 219.793457,
+    "heat_profile_water_com_mw_per_twh": 27.6816315,
+    "heat_profile_water_mfh_mw_per_twh": 18.67765,
+    "heat_profile_water_sfh_mw_per_twh": 43.581055,
+    "total": 572.8435885
+  },
+  "price_note": "DE_LU day-ahead price is not included because it does not provide a complete 2017-2019 common window.",
+  "raw_files": [
+    {
+      "path": "data/raw/opsd/time_series_60min_singleindex.csv",
+      "bytes": 130339665,
+      "modified": 1781604403.9521315,
+      "sha256": "6a7f2bc571314cbf9c321cc03437691cd4be95c3a6f075e60ff99e8035c704c8"
+    },
+    {
+      "path": "data/raw/opsd_weather/weather_data.csv",
+      "bytes": 233540027,
+      "modified": 1782320236.4174054,
+      "sha256": "8e8cc009736fe04e26fa628db45b1755b526472aace56dbf78cac92634353ffd"
+    },
+    {
+      "path": "data/raw/when2heat/when2heat.csv",
+      "bytes": 328400976,
+      "modified": 1782316162.8947966,
+      "sha256": "f1f71790158d1de08403eea32dea7a2732050870c499938135606d9d7faac0fa"
+    }
+  ],
+  "output": {
+    "path": "data/processed/exogenous/germany_joint_hourly_2017_2019.csv",
+    "bytes": 6525508,
+    "sha256": "f61aae4a870deef47951e13db0bab8e1ec98d544ffbfe968b462e7fb6bf8d1bf",
+    "columns": [
+      "utc_timestamp",
+      "electric_load_actual_mw",
+      "solar_generation_actual_mw",
+      "wind_generation_actual_mw",
+      "wind_offshore_generation_actual_mw",
+      "wind_onshore_generation_actual_mw",
+      "imputed_opsd",
+      "temperature_c",
+      "radiation_direct_horizontal_w_m2",
+      "radiation_diffuse_horizontal_w_m2",
+      "imputed_weather",
+      "cop_ashp_floor",
+      "cop_ashp_radiator",
+      "cop_ashp_water",
+      "heat_profile_space_com_mw_per_twh",
+      "heat_profile_space_mfh_mw_per_twh",
+      "heat_profile_space_sfh_mw_per_twh",
+      "heat_profile_water_com_mw_per_twh",
+      "heat_profile_water_mfh_mw_per_twh",
+      "heat_profile_water_sfh_mw_per_twh",
+      "imputed_when2heat",
+      "heat_demand_reference_2015_mw",
+      "radiation_global_horizontal_w_m2",
+      "imputed_any"
+    ]
+  }
+}

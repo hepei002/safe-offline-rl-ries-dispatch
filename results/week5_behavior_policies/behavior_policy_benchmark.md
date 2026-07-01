@@ -1,0 +1,7 @@
+| policy | hours | total_cost_eur | electric_shedding_mwh | heat_shedding_mwh_th | renewable_curtailment_mwh | grid_import_mwh | grid_export_mwh | chp_electric_mwh | heat_pump_heat_mwh_th | battery_throughput_mwh | thermal_throughput_mwh_th | mean_abs_electric_residual_mw | mean_abs_heat_residual_mw_th | max_abs_electric_residual_mw | max_abs_heat_residual_mw_th | mean_solve_time_s | action_coverage_score |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| perfect_information_lp | 72 | 51556.4312 | 0.0000 | 0.0000 | 0.0000 | 194.7467 | 0.0000 | 257.1022 | 251.6803 | 35.0079 | 66.2902 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.2461 |
+| rolling_mpc | 72 | 51740.2322 | 0.0000 | 0.0000 | 0.0000 | 194.6500 | 0.0000 | 258.4952 | 254.8136 | 34.9968 | 61.0053 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0119 | 0.2431 |
+| noisy_rolling_mpc | 72 | 187789.5264 | 0.0538 | 16.8125 | 0.0000 | 210.8777 | 9.8953 | 255.1299 | 261.8133 | 34.7661 | 75.9355 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0101 | 0.2468 |
+| rule_based | 72 | 55352.3894 | 0.0000 | 0.0000 | 0.0000 | 108.0044 | 12.9938 | 326.5474 | 171.5441 | 34.9098 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.1098 |
+| safe_random | 72 | 824703.8198 | 0.0000 | 95.3510 | 0.0000 | 261.7201 | 7.7098 | 245.6520 | 378.5667 | 110.8415 | 155.6756 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.2477 |

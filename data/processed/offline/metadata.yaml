@@ -1,0 +1,63 @@
+name: ries_offline_dispatch_prototype
+format: custom_parquet
+source_period:
+  start_utc: '2018-01-01T00:00:00Z'
+  episodes: 180
+  episode_hours: 24
+  lookahead_hours: 47
+files:
+  expert: expert.parquet
+  mixed: mixed.parquet
+  poor: poor.parquet
+summary:
+- quality: expert
+  transitions: 4320
+  episodes: 180
+  policy_mix_observed: perfect_information_lp:4320
+  mean_reward: -1608.9359730106887
+  mean_episode_return: -38614.46335225653
+  p10_episode_return: -72847.98149899168
+  p90_episode_return: -15624.772517687145
+  mean_safety_cost: 0.2948054618616044
+  mean_episode_safety_cost: 7.075331084678507
+  mean_hard_safety_cost: 0.11100402979403408
+  mean_episode_hard_safety_cost: 2.6640967150568184
+  mean_soft_operation_cost: 0.18380143206757035
+  mean_episode_soft_operation_cost: 4.411234369621688
+  unsafe_transition_rate: 0.48310185185185184
+  action_coverage_score: 0.5724151948797923
+  state_coverage_score: 0.29389874415167966
+- quality: mixed
+  transitions: 1440
+  episodes: 60
+  policy_mix_observed: noisy_rolling_mpc:360;rolling_mpc:360;rule_based:360;safe_random:360
+  mean_reward: -6331.819101916779
+  mean_episode_return: -151963.6584460027
+  p10_episode_return: -556869.0300851631
+  p90_episode_return: -18953.026968020175
+  mean_safety_cost: 1.205386903047428
+  mean_episode_safety_cost: 28.929285673138274
+  mean_hard_safety_cost: 0.6793762948219781
+  mean_episode_hard_safety_cost: 16.30503107572748
+  mean_soft_operation_cost: 0.5260106082254498
+  mean_episode_soft_operation_cost: 12.624254597410795
+  unsafe_transition_rate: 0.5055555555555555
+  action_coverage_score: 0.5197224957788826
+  state_coverage_score: 0.2733358423657675
+- quality: poor
+  transitions: 4320
+  episodes: 180
+  policy_mix_observed: rule_based:1728;safe_random:2592
+  mean_reward: -6900.82783271684
+  mean_episode_return: -165619.86798520412
+  p10_episode_return: -554631.5684722476
+  p90_episode_return: -14530.076691719492
+  mean_safety_cost: 3.538593345892709
+  mean_episode_safety_cost: 84.926240301425
+  mean_hard_safety_cost: 0.7583744300676212
+  mean_episode_hard_safety_cost: 18.20098632162291
+  mean_soft_operation_cost: 2.7802189158250874
+  mean_episode_soft_operation_cost: 66.72525397980209
+  unsafe_transition_rate: 0.38449074074074074
+  action_coverage_score: 0.4871315851872583
+  state_coverage_score: 0.28831881359143025

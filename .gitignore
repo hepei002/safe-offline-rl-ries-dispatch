@@ -1,0 +1,73 @@
+# Local agent / workspace metadata
+.codex/
+.agents/
+docs/superpowers/
+
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+ENV/
+.ipynb_checkpoints/
+
+# Node dependencies and generated browser/tooling caches
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# LaTeX build products
+manuscript/latex/build*/
+manuscript/latex/*.aux
+manuscript/latex/*.bbl
+manuscript/latex/*.blg
+manuscript/latex/*.fdb_latexmk
+manuscript/latex/*.fls
+manuscript/latex/*.log
+manuscript/latex/*.out
+manuscript/latex/*.spl
+manuscript/latex/*.synctex.gz
+manuscript/latex/*.toc
+
+# Raw and intermediate third-party data
+# Keep small metadata/README files, but do not commit downloaded raw tables/zips.
+data/raw/**
+!data/raw/**/
+!data/raw/**/README.md
+!data/raw/**/datapackage.json
+data/interim/**
+data/offline/
+
+# Stale/private manuscript workflow drafts; keep the canonical LaTeX source public.
+manuscript/applied_energy_safe_offline_rl_draft.md
+manuscript/cover_letter_applied_energy.md
+manuscript/submission_materials_applied_energy.md
+
+# Large/generated outputs
+outputs/
+results/figures/**/*.tiff
+results/figures/**/*.tif
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.orig

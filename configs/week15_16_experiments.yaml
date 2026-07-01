@@ -1,0 +1,37 @@
+schema_version: 1.0
+experiment:
+  id: week15_16_generalization_statistics_freeze
+  seed: 0
+  algorithms: [cql, iql]
+  dataset_paths:
+    - data/processed/offline/expert.parquet
+    - data/processed/offline/mixed.parquet
+    - data/processed/offline/poor.parquet
+training:
+  steps: 80
+  batch_size: 256
+  hidden_dim: 64
+  learning_rate: 0.0005
+  gamma: 0.99
+  reward_scale: 0.001
+  bc_weight: 2.5
+  cql_alpha: 0.5
+  expectile: 0.7
+  advantage_temperature: 3.0
+  max_advantage_weight: 20.0
+evaluation:
+  episode_hours: 24
+  risk_score_by_family:
+    cross_year: 3.1
+    cross_season: 3.0
+    climate_zone: 3.6
+    compound_stress: 4.2
+adaptive_safety:
+  low_risk_threshold: 3.0
+  high_risk_threshold: 4.0
+  blend_grid_size: 5
+  hard_safety_tolerance: 1.0e-6
+  force_project_if_hard_violation: false
+outputs:
+  result_dir: results/week15_16_experiments
+  figure_dir: results/figures/week15_16

@@ -1,0 +1,43 @@
+schema_version: 1.0
+experiment:
+  id: week8_offline_rl_baselines
+  dataset_paths:
+    - data/processed/offline/expert.parquet
+    - data/processed/offline/mixed.parquet
+    - data/processed/offline/poor.parquet
+  seeds: [0, 1, 2]
+  algorithms: [bc, td3_bc, cql, iql]
+training:
+  steps: 250
+  batch_size: 256
+  hidden_dim: 64
+  learning_rate: 0.0005
+  gamma: 0.99
+  reward_scale: 0.001
+  bc_weight: 2.5
+  cql_alpha: 0.5
+  expectile: 0.7
+  advantage_temperature: 3.0
+  max_advantage_weight: 20.0
+evaluation:
+  start_utc: "2019-01-01T00:00:00Z"
+  episode_hours: 24
+  episodes: 12
+  stride_hours: 168
+  scenarios:
+    in_distribution:
+      type: in_distribution
+    load_up:
+      type: load_up
+      multiplier: 1.15
+    price_spike:
+      type: price_spike
+      multiplier: 1.8
+    efficiency_drop:
+      type: efficiency_drop
+      cop_multiplier: 0.85
+      chp_efficiency_multiplier: 0.90
+outputs:
+  result_dir: results/week8_offline_rl
+  figure_dir: results/figures/offline_rl
+

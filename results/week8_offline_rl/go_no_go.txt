@@ -1,0 +1,1 @@
+Conditional Go: offline RL improves over BC and shifts measurably worsen safety, but it has not yet beaten the rule controller; continue OOD work while treating rule control as a strong baseline.

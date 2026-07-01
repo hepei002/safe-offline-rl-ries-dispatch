@@ -1,0 +1,23 @@
+\begin{table}[t]
+\centering
+\caption{Main system scale and device parameters.}
+\label{tab:system_parameters}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lll}
+\toprule
+Item & Value & Role/source \\
+\midrule
+Electric load peak & 10 MW & Scaled from German electricity load \\
+Heat load peak & 18 MWth & Scaled from When2Heat heat demand \\
+Grid import/export & 12 MW / 6 MW & Constrained interconnection \\
+Photovoltaic & 6 MWp & Capacity-factor time series \\
+Wind & 4 MW & Capacity-factor time series \\
+CHP & 6 MWe / 7.2 MWth & Fixed heat-to-electric ratio 1.2 \\
+Air-source heat pump & 10 MWth & Hourly COP from When2Heat \\
+Battery & 4 MW / 8 MWh & SOC range 10--90\% \\
+Thermal storage & 5 MW / 20 MWhth & SOC range 10--90\% \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

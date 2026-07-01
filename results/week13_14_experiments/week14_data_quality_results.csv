@@ -1,0 +1,4 @@
+quality,seed,algorithm,episodes,raw_mean_episode_hard_safety_cost,mean_episode_cost_eur,cvar90_episode_cost_eur,mean_episode_safety_cost,mean_episode_hard_safety_cost,unsafe_episode_rate,mean_projection_distance_l2,mean_weighted_projection_distance,mean_decision_time_ms,intervention_rate,pass_through_rate,partial_projection_rate,full_projection_rate
+expert,0,iql,1,17.853206068143738,154749.7051824841,154749.7051824841,27.0085274706921,17.853206068143738,1.0,0.0,0.0,0.23777500000695304,0.0,1.0,0.0,0.0
+mixed,0,iql,1,3.183042977156945,39627.98862616169,39627.98862616169,45.137653232107645,3.183042977156945,1.0,0.0,0.0,0.27159166667445334,0.0,1.0,0.0,0.0
+poor,0,iql,1,0.0,14987.162281259942,14987.162281259942,58.11464249621035,0.0,0.0,0.0,0.0,0.30282916666379833,0.0,1.0,0.0,0.0

@@ -1,0 +1,23 @@
+# Treat source, configuration, manuscript and documentation files as UTF-8 text.
+*.py text eol=lf working-tree-encoding=UTF-8
+*.md text eol=lf working-tree-encoding=UTF-8
+*.tex text eol=lf working-tree-encoding=UTF-8
+*.bib text eol=lf working-tree-encoding=UTF-8
+*.yaml text eol=lf working-tree-encoding=UTF-8
+*.yml text eol=lf working-tree-encoding=UTF-8
+*.csv text eol=lf working-tree-encoding=UTF-8
+*.json text eol=lf working-tree-encoding=UTF-8
+*.txt text eol=lf working-tree-encoding=UTF-8
+
+# Binary research artifacts.
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.svg text eol=lf working-tree-encoding=UTF-8
+*.tif binary
+*.tiff binary
+*.xlsx binary
+*.parquet binary
+*.zip binary
+

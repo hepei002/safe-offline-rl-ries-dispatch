@@ -1,0 +1,96 @@
+schema_version: 1.0
+name: applied_energy_shift_protocol_v1
+description: >
+  Distribution-shift protocol for park-level integrated electricity-heat
+  dispatch. Scenarios perturb exogenous demand, renewable availability,
+  weather-derived COP, and equipment effectiveness while preserving hourly
+  UTC alignment.
+reference_distribution:
+  dataset_paths:
+    - data/processed/offline/expert.parquet
+  fit_quality: expert
+  fit_only_safe_transitions: true
+evaluation:
+  start_utc: "2019-01-01 00:00:00+00:00"
+  episode_hours: 24
+  episodes: 12
+  stride_hours: 168
+  policy: rule_based
+ood:
+  estimator: dynamics_ensemble
+  n_models: 5
+  hidden_dim: 64
+  epochs: 45
+  learning_rate: 0.001
+  batch_size: 256
+  seed: 29
+scenarios:
+  - name: in_distribution
+    family: baseline
+    description: No perturbation; evaluates the reference climate-load regime.
+    parameters: {}
+  - name: load_up_10
+    family: load
+    description: Electric and heat demand increase by 10%.
+    parameters:
+      electric_load_multiplier: 1.10
+      heat_load_multiplier: 1.10
+  - name: load_up_20
+    family: load
+    description: Electric and heat demand increase by 20%.
+    parameters:
+      electric_load_multiplier: 1.20
+      heat_load_multiplier: 1.20
+  - name: renewable_down_20
+    family: renewable
+    description: PV and wind availability decrease by 20%.
+    parameters:
+      pv_multiplier: 0.80
+      wind_multiplier: 0.80
+  - name: cold_wave
+    family: weather
+    description: Cold wave with higher heat demand, lower ASHP COP, and lower temperature.
+    parameters:
+      heat_load_multiplier: 1.25
+      cop_multiplier: 0.85
+      temperature_delta_c: -8.0
+  - name: equipment_degradation
+    family: equipment
+    description: Heat-pump COP degradation and lower effective renewable availability.
+    parameters:
+      cop_multiplier: 0.80
+      pv_multiplier: 0.90
+      wind_multiplier: 0.90
+  - name: compound_stress
+    family: compound
+    description: Simultaneous demand increase, renewable reduction, and COP degradation.
+    parameters:
+      electric_load_multiplier: 1.15
+      heat_load_multiplier: 1.25
+      pv_multiplier: 0.75
+      wind_multiplier: 0.80
+      cop_multiplier: 0.85
+      temperature_delta_c: -5.0
+  - name: load_up_35
+    family: load_extreme
+    description: Stress-test demand increase by 35% to probe hard-safety boundary.
+    parameters:
+      electric_load_multiplier: 1.35
+      heat_load_multiplier: 1.35
+  - name: cold_wave_extreme
+    family: weather_extreme
+    description: Severe cold wave with 50% heat demand increase and COP degradation.
+    parameters:
+      heat_load_multiplier: 1.50
+      cop_multiplier: 0.75
+      temperature_delta_c: -12.0
+  - name: compound_extreme
+    family: compound_extreme
+    description: Stress-test compound drift combining high load, low renewables, and low COP.
+    parameters:
+      electric_load_multiplier: 1.30
+      heat_load_multiplier: 1.60
+      pv_multiplier: 0.60
+      wind_multiplier: 0.65
+      cop_multiplier: 0.75
+      temperature_delta_c: -12.0
