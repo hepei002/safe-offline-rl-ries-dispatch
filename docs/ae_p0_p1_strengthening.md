@@ -7,7 +7,7 @@ Date: 2026-07-15
 | Item | Status | Notes |
 |---|---|---|
 | Public code/data repository | Done | GitHub repository: <https://github.com/hepei002/safe-offline-rl-ries-dispatch> |
-| Persistent DOI/accession | In progress | DOI is being applied for and should replace the current pending statement in the manuscript once available. |
+| Persistent DOI/accession | Done | Zenodo DOI: <https://doi.org/10.5281/zenodo.21381039>. |
 | Funding statement | Added | Zhejiang Provincial Excellent Funding for Postdoctoral Researchers (Grant No. ZJ2025156); China Postdoctoral Science Foundation (Grant No. 2025M784428). |
 | CRediT statement | Draft added | Roles are drafted in `manuscript/latex/main.tex` and `manuscript/submission_materials_applied_energy.md`; all authors should confirm before submission. |
 | Competing interests | Draft added | Current wording declares no known competing financial interests or personal relationships. Confirm with all authors. |
@@ -33,7 +33,7 @@ A new discussion subsection, `Implications for resilient electricity--heat park 
 
 ## Remaining before AE submission
 
-- Insert the final DOI/accession once available.
+- Verify the Zenodo DOI resolves and points to the intended archived release.
 - Replace Fig. 1 with the final manually drawn vector figure.
 - Confirm CRediT roles and competing-interest statement with all authors.
 - Optionally add a figure-source-data map for all main figures.
