@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\caption{Representative distribution-shift scenarios used for evaluation. Relative changes are reported against the reference data.}
+\label{tab:shift_protocol}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llrrrrr}
+\toprule
+Scenario & Family & $\Delta P^{load}$ & $\Delta Q^{load}$ & $\Delta PV$ & $\Delta Wind$ & $\Delta COP$ \\
+\midrule
+in\_distribution & baseline & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+load\_up\_20 & load & 0.20 & 0.20 & 0.00 & 0.00 & 0.00 \\
+equipment\_degradation & equipment & 0.00 & 0.00 & 0.05 & 0.10 & 0.20 \\
+cold\_wave\_extreme & weather\_extreme & 0.00 & 0.50 & 0.00 & 0.00 & 0.25 \\
+compound\_extreme & compound\_extreme & 0.30 & 0.60 & 0.18 & 0.35 & 0.25 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

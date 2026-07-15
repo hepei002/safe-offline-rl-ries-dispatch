@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\caption{Paired tests for hard-safety reductions in five-seed scenarios. Negative mean delta indicates lower hard safety cost after adaptive safety.}
+\label{tab:paired_tests}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llrrr}
+\toprule
+Scenario & Comparison & Pairs & Mean delta & $p$ value \\
+\midrule
+cold\_wave\_extreme & iql $\rightarrow$ iql\_adaptive\_safety & 5 & -58.21 & 0.0005 \\
+cold\_wave\_extreme & cql $\rightarrow$ cql\_adaptive\_safety & 5 & -49.93 & 0.0001 \\
+compound\_extreme & iql $\rightarrow$ iql\_adaptive\_safety & 5 & -74.89 & 0.0002 \\
+compound\_extreme & cql $\rightarrow$ cql\_adaptive\_safety & 5 & -64.49 & 0.0000 \\
+load\_up\_20 & iql $\rightarrow$ iql\_adaptive\_safety & 5 & -20.12 & 0.0168 \\
+load\_up\_20 & cql $\rightarrow$ cql\_adaptive\_safety & 5 & -12.55 & 0.0094 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

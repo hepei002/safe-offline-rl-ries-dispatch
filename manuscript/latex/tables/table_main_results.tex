@@ -1,0 +1,38 @@
+\begin{table}[t]
+\centering
+\caption{Main dispatch results. Costs are mean episode operating costs; hard safety cost summarizes physical infeasibility and emergency violations.}
+\label{tab:main_results}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llrrrr}
+\toprule
+Scenario & Method & Cost (EUR) & Hard safety & Interv. rate & Time (ms) \\
+\midrule
+cold\_wave\_extreme & rolling\_mpc & 15402 & 0.00 & 0.00 & 7.71 \\
+cold\_wave\_extreme & rule\_based & 17197 & 0.00 & 0.00 & 0.22 \\
+cold\_wave\_extreme & cql & 414519 & 49.93 & 0.00 & 0.26 \\
+cold\_wave\_extreme & cql\_adaptive\_safety & 16380 & 0.00 & 0.73 & 173.30 \\
+cold\_wave\_extreme & iql & 480323 & 58.21 & 0.00 & 0.26 \\
+cold\_wave\_extreme & iql\_adaptive\_safety & 16703 & 0.00 & 0.78 & 159.93 \\
+compound\_extreme & rolling\_mpc & 22362 & 0.00 & 0.00 & 7.55 \\
+compound\_extreme & rule\_based & 23221 & 0.00 & 0.00 & 0.19 \\
+compound\_extreme & cql & 538233 & 64.49 & 0.00 & 0.26 \\
+compound\_extreme & cql\_adaptive\_safety & 25089 & 0.00 & 0.78 & 146.49 \\
+compound\_extreme & iql & 620851 & 74.89 & 0.00 & 0.27 \\
+compound\_extreme & iql\_adaptive\_safety & 24536 & 0.00 & 0.83 & 142.91 \\
+in\_distribution & rolling\_mpc & 11187 & 0.00 & 0.00 & 8.99 \\
+in\_distribution & rule\_based & 13059 & 0.00 & 0.00 & 0.20 \\
+in\_distribution & cql & 23991 & 1.27 & 0.00 & 0.26 \\
+in\_distribution & cql\_adaptive\_safety & 13853 & 0.00 & 0.12 & 390.11 \\
+in\_distribution & iql & 45034 & 3.93 & 0.00 & 0.28 \\
+in\_distribution & iql\_adaptive\_safety & 13758 & 0.00 & 0.20 & 392.54 \\
+load\_up\_20 & rolling\_mpc & 14945 & 0.00 & 0.00 & 7.99 \\
+load\_up\_20 & rule\_based & 16655 & 0.00 & 0.00 & 0.19 \\
+load\_up\_20 & cql & 117282 & 12.55 & 0.00 & 0.26 \\
+load\_up\_20 & cql\_adaptive\_safety & 17374 & 0.00 & 0.60 & 228.54 \\
+load\_up\_20 & iql & 177662 & 20.12 & 0.00 & 0.26 \\
+load\_up\_20 & iql\_adaptive\_safety & 17343 & 0.00 & 0.70 & 192.74 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
