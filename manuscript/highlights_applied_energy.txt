@@ -1,5 +1,0 @@
-Offline RL scheduling is tested under electricity--heat distribution shifts.
-OOD risk is coupled with a physics-constrained adaptive safety layer.
-Public data build a reproducible three-year hourly RIES benchmark.
-Raw CQL and IQL show hard-safety failures under severe shifts.
-Adaptive safety reduces hard violations with explicit intervention costs.

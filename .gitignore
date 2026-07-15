@@ -46,6 +46,9 @@ manuscript/latex/*.spl
 manuscript/latex/*.synctex.gz
 manuscript/latex/*.toc
 
+# Pre-submission manuscript materials are kept local until journal submission.
+manuscript/
+
 # Raw and intermediate third-party data
 # Keep small metadata/README files, but do not commit downloaded raw tables/zips.
 data/raw/**
@@ -54,11 +57,6 @@ data/raw/**
 !data/raw/**/datapackage.json
 data/interim/**
 data/offline/
-
-# Stale/private manuscript workflow drafts; keep the canonical LaTeX source public.
-manuscript/applied_energy_safe_offline_rl_draft.md
-manuscript/cover_letter_applied_energy.md
-manuscript/submission_materials_applied_energy.md
 
 # Large/generated outputs
 outputs/
